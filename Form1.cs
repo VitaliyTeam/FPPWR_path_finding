@@ -16,5 +16,20 @@ namespace FPPWR_path_finding
         {
             InitializeComponent();
         }
+
+        private void btnCreateNewMap_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDrawNet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCalculateRoute_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
