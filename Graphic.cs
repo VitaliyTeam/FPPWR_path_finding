@@ -21,6 +21,21 @@ namespace FPPWR_path_finding
         {
         }
 
+        public void DrawMap(Size size)
+        {
+            int x = size.Width / 100 + 1;
+            int y = size.Height / 100 + 1;
+
+            for (int i = 0; i < x; i++)
+            {
+                graphics.DrawLine(new Pen(Color.Black) { Width = 1 }, new Point(i * 100, 1), new Point(i * 100, size.Height));
+            }
+            for (int i = 0; i < y; i++)
+            {
+                graphics.DrawLine(new Pen(Color.Black) { Width = 1 }, new Point(1, i * 100), new Point(size.Width, i * 100));
+            }
+        }
+
         public void PAUSE(int pause = 100)
         {
             Thread.Sleep(pause); // set this value to set drawing speed
