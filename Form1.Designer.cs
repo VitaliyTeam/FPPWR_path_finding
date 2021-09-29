@@ -29,21 +29,22 @@ namespace FPPWR_path_finding
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.pictBoxArea = new System.Windows.Forms.PictureBox();
             this.btnCreateNewMap = new System.Windows.Forms.Button();
             this.btnDrawNet = new System.Windows.Forms.Button();
             this.btnCalculateRoute = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.pointsCount = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictBoxArea)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox
+            // pictBoxArea
             // 
-            this.pictureBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(751, 637);
-            this.pictureBox.TabIndex = 0;
-            this.pictureBox.TabStop = false;
+            this.pictBoxArea.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictBoxArea.Location = new System.Drawing.Point(12, 12);
+            this.pictBoxArea.Name = "pictBoxArea";
+            this.pictBoxArea.Size = new System.Drawing.Size(751, 637);
+            this.pictBoxArea.TabIndex = 0;
+            this.pictBoxArea.TabStop = false;
             // 
             // btnCreateNewMap
             // 
@@ -78,28 +79,38 @@ namespace FPPWR_path_finding
             this.btnCalculateRoute.UseVisualStyleBackColor = true;
             this.btnCalculateRoute.Click += new System.EventHandler(this.btnCalculateRoute_Click);
             // 
+            // pointsCount
+            // 
+            this.pointsCount.Location = new System.Drawing.Point(783, 312);
+            this.pointsCount.Name = "pointsCount";
+            this.pointsCount.Size = new System.Drawing.Size(206, 22);
+            this.pointsCount.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1001, 661);
+            this.Controls.Add(this.pointsCount);
             this.Controls.Add(this.btnCalculateRoute);
             this.Controls.Add(this.btnDrawNet);
             this.Controls.Add(this.btnCreateNewMap);
-            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.pictBoxArea);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictBoxArea)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.PictureBox pictBoxArea;
         private System.Windows.Forms.Button btnCreateNewMap;
         private System.Windows.Forms.Button btnDrawNet;
         private System.Windows.Forms.Button btnCalculateRoute;
+        private System.Windows.Forms.TextBox pointsCount;
     }
 }
 

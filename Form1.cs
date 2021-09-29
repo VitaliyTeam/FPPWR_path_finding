@@ -14,23 +14,27 @@ namespace FPPWR_path_finding
     {
         Graphic graphic;
         Graphics graphics;
-        // Calculator не оглошувати! Він static 
+        Dictionary<Point, int> allPoints;
+        // Calculator не оглошувати! Він static
+        // Я знаю це логічно
 
         public Form1()
         {
             InitializeComponent();
-            graphics = pictureBox.CreateGraphics();
+            graphics = pictBoxArea.CreateGraphics();
             graphic = new Graphic(graphics);
+            allPoints = new Dictionary<Point, int>();
         }
 
         private void btnCreateNewMap_Click(object sender, EventArgs e)
         {
-            //allPoints = Calculator.generatePoints(pointsCount, pictBoxArea.Width, pictBoxArea.Height);
+            allPoints = Calculator.generatePoints(int.Parse(pointsCount.Text), pictBoxArea.Width, pictBoxArea.Height);
+            graphic.DrawPointDictionary(allPoints);
         }
 
         private void btnDrawNet_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnCalculateRoute_Click(object sender, EventArgs e)
