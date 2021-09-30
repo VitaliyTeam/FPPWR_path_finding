@@ -11,14 +11,19 @@ namespace FPPWR_path_finding
     class Graphic
     {
         private Graphics graphics;
+        private Map map;
+
+        public Map Map { get => map; set => map = value; }
 
         public Graphic(Graphics graphics)
         {
             this.graphics = graphics;
+            Map = new Map();
         }
 
         public Graphic()
         {
+
         }
 
         public void DrawMap(Size size)
@@ -33,6 +38,14 @@ namespace FPPWR_path_finding
             for (int i = 0; i < y; i++)
             {
                 graphics.DrawLine(new Pen(Color.Black) { Width = 1 }, new Point(1, i * 100), new Point(size.Width, i * 100));
+            }
+
+            for (int i = 0; i < x - 1; i++)
+            {
+                for (int j = 0; j < y - 1; j++)
+                {
+                    Map.Cubes.Add(new Cube(new List<Point>(), j, i));
+                }
             }
         }
 

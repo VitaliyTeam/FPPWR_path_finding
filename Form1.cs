@@ -37,13 +37,15 @@ namespace FPPWR_path_finding
 
         private void btnCreateNewMap_Click(object sender, EventArgs e)
         {
-            graphic.DrawMap(new Size(pictBoxArea.Width, pictBoxArea.Height));                       
+            graphic.DrawMap(new Size(pictBoxArea.Width, pictBoxArea.Height));
+            allPoints = Calculator.generatePoints(int.Parse(pointsCount.Text), pictBoxArea.Width, pictBoxArea.Height);
+            graphic.DrawPointDictionary(allPoints);
+            label1.Text = graphic.Map.GetPoints(allPoints);
         }
 
         private void btnDrawNet_Click(object sender, EventArgs e)
         {
-            allPoints = Calculator.generatePoints(int.Parse(pointsCount.Text), pictBoxArea.Width, pictBoxArea.Height);
-            graphic.DrawPointDictionary(allPoints);
+            
         }
 
         private void btnCalculateRoute_Click(object sender, EventArgs e)

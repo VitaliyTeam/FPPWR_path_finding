@@ -33,6 +33,7 @@ namespace FPPWR_path_finding
             this.btnDrawNet = new System.Windows.Forms.Button();
             this.btnCalculateRoute = new System.Windows.Forms.Button();
             this.pointsCount = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCreateNewMap
@@ -75,11 +76,21 @@ namespace FPPWR_path_finding
             this.pointsCount.Size = new System.Drawing.Size(206, 22);
             this.pointsCount.TabIndex = 4;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1061, 316);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 1055);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pointsCount);
             this.Controls.Add(this.btnCalculateRoute);
             this.Controls.Add(this.btnDrawNet);
@@ -97,6 +108,7 @@ namespace FPPWR_path_finding
         private System.Windows.Forms.Button btnDrawNet;
         private System.Windows.Forms.Button btnCalculateRoute;
         private System.Windows.Forms.TextBox pointsCount;
+        private System.Windows.Forms.Label label1;
     }
 }
 
