@@ -37,6 +37,8 @@ namespace FPPWR_path_finding
 
         private void btnCreateNewMap_Click(object sender, EventArgs e)
         {
+            graphic.ClearImage();
+            graphic.Map.Cubes = new List<Cube>();
             graphic.DrawMap(new Size(pictBoxArea.Width, pictBoxArea.Height));
             allPoints = Calculator.generatePoints(int.Parse(pointsCount.Text), pictBoxArea.Width, pictBoxArea.Height);
             graphic.DrawPointDictionary(allPoints);
