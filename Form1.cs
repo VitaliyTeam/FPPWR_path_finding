@@ -38,11 +38,9 @@ namespace FPPWR_path_finding
         private void btnCreateNewMap_Click(object sender, EventArgs e)
         {
             graphic.ClearImage();
-            graphic.Map.Cubes = new List<Cube>();
             graphic.DrawMap(new Size(pictBoxArea.Width, pictBoxArea.Height));
             allPoints = Calculator.generatePoints(int.Parse(pointsCount.Text), pictBoxArea.Width, pictBoxArea.Height);
-            graphic.DrawPointDictionary(allPoints);
-            label1.Text = graphic.Map.GetPoints(allPoints);
+            label1.Text = graphic.DrawPointDictionary1(allPoints);
         }
 
         private void btnDrawNet_Click(object sender, EventArgs e)
