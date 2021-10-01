@@ -22,16 +22,64 @@ namespace FPPWR_path_finding
 
         }
 
+        public Dictionary<Point, int> Net(Dictionary<Point, int> allPoints, Size size)
+        {
+            allPoints = Calculator.sortDictionaryByValue(allPoints);
+            int stepsY = size.Height / 100;
+            int stepsX = size.Width / 100;
+
+            Dictionary<Point, int> sorted = new Dictionary<Point, int>();
+
+
+            for (int i = 0; i < stepsY; i++)
+            {
+                Dictionary<Point, int> points = new Dictionary<Point, int>();
+                for (int k = 0; k < stepsX; k++)
+                {
+                    
+                    for (int j = 0; j < allPoints.Count; j++)
+                    {
+                        if (i * 6 < allPoints.ElementAt(j).Value && (i + 1) * 6 + 1> allPoints.ElementAt(j).Value)
+                        {
+                            points.Add(allPoints.ElementAt(j).Key, allPoints.ElementAt(j).Value);
+                            allPoints.Remove(allPoints.ElementAt(j).Key);
+                        }
+                    }
+                    
+                }
+                if (i % 2 == 0)
+                {
+                    points = Calculator.sortDictionaryByKey(points);                    
+                    foreach (var item in points)
+                    {
+                        sorted.Add(item.Key, item.Value);
+                    }
+                }
+                else
+                {
+                    points = Calculator.sortDictionaryByKeyDescending(points);
+                    foreach (var item in points)
+                    {
+                        sorted.Add(item.Key, item.Value);
+                    }
+                }
+            }
+            List<Point> points1 = Calculator.DictionaryToList(sorted);
+            DrawRoute(points1, Color.Black);
+            return sorted;
+        }
+
         public string DrawPointDictionary1(Dictionary<Point, int> points)
         {
-            int i = 1;
             string stat = "";
-            foreach (KeyValuePair<Point, int> result in points)
+            for (int i = 0; i < points.Count; i++)
             {
-                DrawPoint(result.Key, Brushes.Black);
-                int a = result.Key.Y / 100 * 6 + result.Key.X / 100 + 1;
-                stat += $"{i}.C:{a}\n";
+                DrawPoint(points.ElementAt(i).Key, Brushes.Black);
+                int a = points.ElementAt(i).Key.Y / 100 * 6 + points.ElementAt(i).Key.X / 100 + 1;
+                points[points.ElementAt(i).Key] = a;
+                stat += $"{i + 1}.C:{a}\n";
             }
+            
             return stat;
         }
 
@@ -58,7 +106,7 @@ namespace FPPWR_path_finding
         public void DrawLine(Point p1, Point p2, Color color)
         {
             Pen pen = new Pen(color);
-            pen.Width = 3;
+            pen.Width = 1;
             graphics.DrawLine(pen, p1, p2);
         }
 

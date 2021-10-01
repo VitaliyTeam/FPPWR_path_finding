@@ -17,8 +17,6 @@ namespace FPPWR_path_finding
         Graphics graphics;
         Dictionary<Point, int> allPoints;
         PictureBox pictBoxArea;
-        // Calculator не оглошувати! Він static
-        // Я знаю це логічно
 
         public Form1()
         {
@@ -45,7 +43,7 @@ namespace FPPWR_path_finding
 
         private void btnDrawNet_Click(object sender, EventArgs e)
         {
-            
+            allPoints = graphic.Net(allPoints, new Size(pictBoxArea.Width, pictBoxArea.Height));
         }
 
         private void btnCalculateRoute_Click(object sender, EventArgs e)

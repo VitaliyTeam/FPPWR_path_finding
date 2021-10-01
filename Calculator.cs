@@ -8,6 +8,21 @@ namespace FPPWR_path_finding
     class Calculator
     {
         // find points center | centroid | barycenter | mass center
+        public static Dictionary<Point, int> sortDictionaryByValueDescending(Dictionary<Point, int> dictionary)
+        {
+            return dictionary.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+        }
+
+        public static Dictionary<Point, int> sortDictionaryByKey(Dictionary<Point, int> dictionary)
+        {
+            return dictionary.OrderBy(x => x.Key.X).ToDictionary(x => x.Key, x => x.Value);
+        }
+
+        public static Dictionary<Point, int> sortDictionaryByKeyDescending(Dictionary<Point, int> dictionary)
+        {
+            return dictionary.OrderByDescending(x => x.Key.X).ToDictionary(x => x.Key, x => x.Value);
+        }
+
         public static Point findCentroid(List<Point> pointGroup)
         {
             int x = 0;
